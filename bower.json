@@ -1,0 +1,17 @@
+{
+  "name": "Adnan",
+  "version": "0.0.0",
+  "homepage": "https://github.com/aomanovic/Tim3-NWT2015",
+  "authors": [
+    "aomanovic <aomanovic@outlook.com>"
+  ],
+  "description": "HealthMonitor",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
