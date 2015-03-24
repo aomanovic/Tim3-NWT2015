@@ -1,29 +1,35 @@
-<h1>Listing diagnoses</h1>
+<ul class="nav nav-tabs" role="tablist">
+  <li class="active"><%= link_to 'View list', diagnoses_path %></li>
+  <li><%= link_to 'New Diagnosis', new_diagnosis_path %></li>
+</ul>
 
-<table>
+<div class="table-responsive">
+<table class="table table-bordered">
   <thead>
+  <tr>
+    <br>
+    <th colspan="6"><h3>Listing diagnoses</h3></th>
+  </tr>
     <tr>
-      <th>Code</th>
-      <th>Name</th>
-      <th>Description</th>
-      <th colspan="3"></th>
+      <th class="col-sm-3">Code</th>
+      <th class="col-sm-3">Name</th>
+      <th class="col-sm-3">Description</th>
+      <th class="col-sm-3" colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @diagnoses.each do |diagnosis| %>
       <tr>
-        <td><%= diagnosis.code %></td>
-        <td><%= diagnosis.name %></td>
-        <td><%= diagnosis.description %></td>
-        <td><%= link_to 'Show', diagnosis %></td>
-        <td><%= link_to 'Edit', edit_diagnosis_path(diagnosis) %></td>
-        <td><%= link_to 'Destroy', diagnosis, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td class="col-sm-3"><%= diagnosis.code %></td>
+        <td class="col-sm-3"><%= diagnosis.name %></td>
+        <td class="col-sm-3"><%= diagnosis.description %></td>
+        <td class="col-sm-1"><%= link_to 'Show', diagnosis %></td>
+        <td class="col-sm-1"><%= link_to 'Edit', edit_diagnosis_path(diagnosis) %></td>
+        <td class="col-sm-1"><%= link_to 'Destroy', diagnosis, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
+</div>
 <br>
-
-<%= link_to 'New Diagnose', new_diagnosis_path %>

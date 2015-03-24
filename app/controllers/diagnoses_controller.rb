@@ -4,7 +4,7 @@ class DiagnosesController < ApplicationController
   # GET /diagnoses
   # GET /diagnoses.json
   def index
-    @diagnoses = Diagnose.all
+    @diagnoses = Diagnosis.all
   end
 
   # GET /diagnoses/1
@@ -14,7 +14,7 @@ class DiagnosesController < ApplicationController
 
   # GET /diagnoses/new
   def new
-    @diagnosis = Diagnose.new
+    @diagnosis = Diagnosis.new
   end
 
   # GET /diagnoses/1/edit
@@ -24,11 +24,11 @@ class DiagnosesController < ApplicationController
   # POST /diagnoses
   # POST /diagnoses.json
   def create
-    @diagnosis = Diagnose.new(diagnosis_params)
+    @diagnosis = Diagnosis.new(diagnosis_params)
 
     respond_to do |format|
       if @diagnosis.save
-        format.html { redirect_to @diagnosis, notice: 'Diagnose was successfully created.' }
+        format.html { redirect_to @diagnosis, notice: 'Diagnosis was successfully created.' }
         format.json { render :show, status: :created, location: @diagnosis }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class DiagnosesController < ApplicationController
   def update
     respond_to do |format|
       if @diagnosis.update(diagnosis_params)
-        format.html { redirect_to @diagnosis, notice: 'Diagnose was successfully updated.' }
+        format.html { redirect_to @diagnosis, notice: 'Diagnosis was successfully updated.' }
         format.json { render :show, status: :ok, location: @diagnosis }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class DiagnosesController < ApplicationController
   def destroy
     @diagnosis.destroy
     respond_to do |format|
-      format.html { redirect_to diagnoses_url, notice: 'Diagnose was successfully destroyed.' }
+      format.html { redirect_to diagnoses_url, notice: 'Diagnosis was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -64,7 +64,7 @@ class DiagnosesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_diagnosis
-      @diagnosis = Diagnose.find(params[:id])
+      @diagnosis = Diagnosis.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

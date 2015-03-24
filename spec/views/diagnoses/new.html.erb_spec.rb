@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe "diagnoses/new" do
   before(:each) do
-    assign(:diagnose, stub_model(Diagnose,
+    assign(:diagnose, stub_model(Diagnosis,
       :code => "MyString",
       :name => "MyString",
       :description => "MyText"

@@ -3,12 +3,12 @@ require 'spec_helper'
 describe "diagnoses/index" do
   before(:each) do
     assign(:diagnoses, [
-      stub_model(Diagnose,
+      stub_model(Diagnosis,
         :code => "Code",
         :name => "Name",
         :description => "MyText"
       ),
-      stub_model(Diagnose,
+      stub_model(Diagnosis,
         :code => "Code",
         :name => "Name",
         :description => "MyText"

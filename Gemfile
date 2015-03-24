@@ -48,6 +48,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin]
 gem 'bower-rails'
 gem 'angular-rails-templates'
 gem "foreman"
+gem 'bootstrap_form'
 group :production, :staging do
   gem "rails_12factor"
   gem "rails_stdout_logging"

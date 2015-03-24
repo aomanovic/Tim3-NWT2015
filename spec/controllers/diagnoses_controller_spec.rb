@@ -21,7 +21,7 @@ require 'spec_helper'
 describe DiagnosesController do
 
   # This should return the minimal set of attributes required to create a valid
-  # Diagnose. As you add validations to Diagnose, be sure to
+  # Diagnosis. As you add validations to Diagnosis, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) { { "code" => "MyString" } }
 
@@ -32,7 +32,7 @@ describe DiagnosesController do
 
   describe "GET index" do
     it "assigns all diagnoses as @diagnoses" do
-      diagnose = Diagnose.create! valid_attributes
+      diagnose = Diagnosis.create! valid_attributes
       get :index, {}, valid_session
       assigns(:diagnoses).should eq([diagnose])
     end
@@ -40,7 +40,7 @@ describe DiagnosesController do
 
   describe "GET show" do
     it "assigns the requested diagnose as @diagnose" do
-      diagnose = Diagnose.create! valid_attributes
+      diagnose = Diagnosis.create! valid_attributes
       get :show, {:id => diagnose.to_param}, valid_session
       assigns(:diagnose).should eq(diagnose)
     end
@@ -49,13 +49,13 @@ describe DiagnosesController do
   describe "GET new" do
     it "assigns a new diagnose as @diagnose" do
       get :new, {}, valid_session
-      assigns(:diagnose).should be_a_new(Diagnose)
+      assigns(:diagnose).should be_a_new(Diagnosis)
     end
   end
 
   describe "GET edit" do
     it "assigns the requested diagnose as @diagnose" do
-      diagnose = Diagnose.create! valid_attributes
+      diagnose = Diagnosis.create! valid_attributes
       get :edit, {:id => diagnose.to_param}, valid_session
       assigns(:diagnose).should eq(diagnose)
     end
@@ -63,35 +63,35 @@ describe DiagnosesController do
 
   describe "POST create" do
     describe "with valid params" do
-      it "creates a new Diagnose" do
+      it "creates a new Diagnosis" do
         expect {
           post :create, {:diagnose => valid_attributes}, valid_session
-        }.to change(Diagnose, :count).by(1)
+        }.to change(Diagnosis, :count).by(1)
       end
 
       it "assigns a newly created diagnose as @diagnose" do
         post :create, {:diagnose => valid_attributes}, valid_session
-        assigns(:diagnose).should be_a(Diagnose)
+        assigns(:diagnose).should be_a(Diagnosis)
         assigns(:diagnose).should be_persisted
       end
 
       it "redirects to the created diagnose" do
         post :create, {:diagnose => valid_attributes}, valid_session
-        response.should redirect_to(Diagnose.last)
+        response.should redirect_to(Diagnosis.last)
       end
     end
 
     describe "with invalid params" do
       it "assigns a newly created but unsaved diagnose as @diagnose" do
         # Trigger the behavior that occurs when invalid params are submitted
-        Diagnose.any_instance.stub(:save).and_return(false)
+        Diagnosis.any_instance.stub(:save).and_return(false)
         post :create, {:diagnose => { "code" => "invalid value" }}, valid_session
-        assigns(:diagnose).should be_a_new(Diagnose)
+        assigns(:diagnose).should be_a_new(Diagnosis)
       end
 
       it "re-renders the 'new' template" do
         # Trigger the behavior that occurs when invalid params are submitted
-        Diagnose.any_instance.stub(:save).and_return(false)
+        Diagnosis.any_instance.stub(:save).and_return(false)
         post :create, {:diagnose => { "code" => "invalid value" }}, valid_session
         response.should render_template("new")
       end
@@ -101,23 +101,23 @@ describe DiagnosesController do
   describe "PUT update" do
     describe "with valid params" do
       it "updates the requested diagnose" do
-        diagnose = Diagnose.create! valid_attributes
+        diagnose = Diagnosis.create! valid_attributes
         # Assuming there are no other diagnoses in the database, this
-        # specifies that the Diagnose created on the previous line
+        # specifies that the Diagnosis created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
-        Diagnose.any_instance.should_receive(:update).with({ "code" => "MyString" })
+        Diagnosis.any_instance.should_receive(:update).with({ "code" => "MyString" })
         put :update, {:id => diagnose.to_param, :diagnose => { "code" => "MyString" }}, valid_session
       end
 
       it "assigns the requested diagnose as @diagnose" do
-        diagnose = Diagnose.create! valid_attributes
+        diagnose = Diagnosis.create! valid_attributes
         put :update, {:id => diagnose.to_param, :diagnose => valid_attributes}, valid_session
         assigns(:diagnose).should eq(diagnose)
       end
 
       it "redirects to the diagnose" do
-        diagnose = Diagnose.create! valid_attributes
+        diagnose = Diagnosis.create! valid_attributes
         put :update, {:id => diagnose.to_param, :diagnose => valid_attributes}, valid_session
         response.should redirect_to(diagnose)
       end
@@ -125,17 +125,17 @@ describe DiagnosesController do
 
     describe "with invalid params" do
       it "assigns the diagnose as @diagnose" do
-        diagnose = Diagnose.create! valid_attributes
+        diagnose = Diagnosis.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
-        Diagnose.any_instance.stub(:save).and_return(false)
+        Diagnosis.any_instance.stub(:save).and_return(false)
         put :update, {:id => diagnose.to_param, :diagnose => { "code" => "invalid value" }}, valid_session
         assigns(:diagnose).should eq(diagnose)
       end
 
       it "re-renders the 'edit' template" do
-        diagnose = Diagnose.create! valid_attributes
+        diagnose = Diagnosis.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
-        Diagnose.any_instance.stub(:save).and_return(false)
+        Diagnosis.any_instance.stub(:save).and_return(false)
         put :update, {:id => diagnose.to_param, :diagnose => { "code" => "invalid value" }}, valid_session
         response.should render_template("edit")
       end
@@ -144,14 +144,14 @@ describe DiagnosesController do
 
   describe "DELETE destroy" do
     it "destroys the requested diagnose" do
-      diagnose = Diagnose.create! valid_attributes
+      diagnose = Diagnosis.create! valid_attributes
       expect {
         delete :destroy, {:id => diagnose.to_param}, valid_session
-      }.to change(Diagnose, :count).by(-1)
+      }.to change(Diagnosis, :count).by(-1)
     end
 
     it "redirects to the diagnoses list" do
-      diagnose = Diagnose.create! valid_attributes
+      diagnose = Diagnosis.create! valid_attributes
       delete :destroy, {:id => diagnose.to_param}, valid_session
       response.should redirect_to(diagnoses_url)
     end

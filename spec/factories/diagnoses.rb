@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :diagnosis, :class => 'Diagnose' do
+  factory :diagnosis, :class => 'Diagnosis' do
     code "MyString"
 name "MyString"
 description "MyText"
