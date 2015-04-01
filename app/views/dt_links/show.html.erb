@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Diagnoseid:</strong>
+  <%= @dt_link.DiagnoseID %>
+</p>
+
+<p>
+  <strong>Therapyid:</strong>
+  <%= @dt_link.TherapyID %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @dt_link.Description %>
+</p>
+
+<%= link_to 'Edit', edit_dt_link_path(@dt_link) %> |
+<%= link_to 'Back', dt_links_path %>

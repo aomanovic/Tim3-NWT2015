@@ -1,0 +1,37 @@
+<%= form_for(@evidention) do |f| %>
+  <% if @evidention.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@evidention.errors.count, "error") %> prohibited this evidention from being saved:</h2>
+
+      <ul>
+      <% @evidention.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :AnamnesisID %><br>
+    <%= f.number_field :AnamnesisID %>
+  </div>
+  <div class="field">
+    <%= f.label :PersonID %><br>
+    <%= f.number_field :PersonID %>
+  </div>
+  <div class="field">
+    <%= f.label :MedicalStuffID %><br>
+    <%= f.number_field :MedicalStuffID %>
+  </div>
+  <div class="field">
+    <%= f.label :Date %><br>
+    <%= f.datetime_select :Date %>
+  </div>
+  <div class="field">
+    <%= f.label :Remark %><br>
+    <%= f.text_field :Remark %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

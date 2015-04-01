@@ -1,0 +1,33 @@
+<h1>Listing evidentions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Anamnesisid</th>
+      <th>Personid</th>
+      <th>Medicalstuffid</th>
+      <th>Date</th>
+      <th>Remark</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @evidentions.each do |evidention| %>
+      <tr>
+        <td><%= evidention.AnamnesisID %></td>
+        <td><%= evidention.PersonID %></td>
+        <td><%= evidention.MedicalStuffID %></td>
+        <td><%= evidention.Date %></td>
+        <td><%= evidention.Remark %></td>
+        <td><%= link_to 'Show', evidention %></td>
+        <td><%= link_to 'Edit', edit_evidention_path(evidention) %></td>
+        <td><%= link_to 'Destroy', evidention, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Evidention', new_evidention_path %>

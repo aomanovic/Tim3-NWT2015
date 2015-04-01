@@ -1,0 +1,37 @@
+<%= form_for(@anamnese) do |f| %>
+  <% if @anamnese.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@anamnese.errors.count, "error") %> prohibited this anamnese from being saved:</h2>
+
+      <ul>
+      <% @anamnese.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :PersonID %><br>
+    <%= f.number_field :PersonID %>
+  </div>
+  <div class="field">
+    <%= f.label :MedicalFacilityID %><br>
+    <%= f.number_field :MedicalFacilityID %>
+  </div>
+  <div class="field">
+    <%= f.label :DateOfCreation %><br>
+    <%= f.datetime_select :DateOfCreation %>
+  </div>
+  <div class="field">
+    <%= f.label :UserID %><br>
+    <%= f.number_field :UserID %>
+  </div>
+  <div class="field">
+    <%= f.label :Remark %><br>
+    <%= f.text_field :Remark %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

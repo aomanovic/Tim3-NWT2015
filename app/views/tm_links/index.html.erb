@@ -1,0 +1,31 @@
+<h1>Listing tm_links</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Therapyid</th>
+      <th>Medicamentid</th>
+      <th>Quantity</th>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tm_links.each do |tm_link| %>
+      <tr>
+        <td><%= tm_link.TherapyID %></td>
+        <td><%= tm_link.MedicamentID %></td>
+        <td><%= tm_link.Quantity %></td>
+        <td><%= tm_link.Description %></td>
+        <td><%= link_to 'Show', tm_link %></td>
+        <td><%= link_to 'Edit', edit_tm_link_path(tm_link) %></td>
+        <td><%= link_to 'Destroy', tm_link, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Tm link', new_tm_link_path %>

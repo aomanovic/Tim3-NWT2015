@@ -1,0 +1,29 @@
+<%= form_for(@dt_link) do |f| %>
+  <% if @dt_link.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@dt_link.errors.count, "error") %> prohibited this dt_link from being saved:</h2>
+
+      <ul>
+      <% @dt_link.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :DiagnoseID %><br>
+    <%= f.number_field :DiagnoseID %>
+  </div>
+  <div class="field">
+    <%= f.label :TherapyID %><br>
+    <%= f.number_field :TherapyID %>
+  </div>
+  <div class="field">
+    <%= f.label :Description %><br>
+    <%= f.text_field :Description %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

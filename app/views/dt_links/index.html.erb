@@ -1,0 +1,29 @@
+<h1>Listing dt_links</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Diagnoseid</th>
+      <th>Therapyid</th>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @dt_links.each do |dt_link| %>
+      <tr>
+        <td><%= dt_link.DiagnoseID %></td>
+        <td><%= dt_link.TherapyID %></td>
+        <td><%= dt_link.Description %></td>
+        <td><%= link_to 'Show', dt_link %></td>
+        <td><%= link_to 'Edit', edit_dt_link_path(dt_link) %></td>
+        <td><%= link_to 'Destroy', dt_link, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Dt link', new_dt_link_path %>

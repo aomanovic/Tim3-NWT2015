@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Evidentionid:</strong>
+  <%= @ed_link.EvidentionID %>
+</p>
+
+<p>
+  <strong>Diagnoseid:</strong>
+  <%= @ed_link.DiagnoseID %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @ed_link.Description %>
+</p>
+
+<%= link_to 'Edit', edit_ed_link_path(@ed_link) %> |
+<%= link_to 'Back', ed_links_path %>

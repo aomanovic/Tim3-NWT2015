@@ -1,4 +1,28 @@
 Rails.application.routes.draw do
+  resources :tm_links
+
+  resources :dt_links
+
+  resources :ed_links
+
+  resources :es_links
+
+  resources :evidentions
+
+  resources :attachments
+
+  resources :anamneses
+
+  resources :people
+
+  resources :user_types
+
+  resources :measurements
+
+  resources :visits
+
+  resources :master_medical_facilities
+
   resources :medicaments
 
   resources :therapies
@@ -12,7 +36,6 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
-
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
@@ -22,7 +45,7 @@ Rails.application.routes.draw do
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
 
-  # Example resource route with options:
+  # Example resource route with options:rai
   #   resources :products do
   #     member do
   #       get 'short'

@@ -1,0 +1,2 @@
+module EdLinksHelper
+end

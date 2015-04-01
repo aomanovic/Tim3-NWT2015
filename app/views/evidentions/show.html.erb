@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Anamnesisid:</strong>
+  <%= @evidention.AnamnesisID %>
+</p>
+
+<p>
+  <strong>Personid:</strong>
+  <%= @evidention.PersonID %>
+</p>
+
+<p>
+  <strong>Medicalstuffid:</strong>
+  <%= @evidention.MedicalStuffID %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @evidention.Date %>
+</p>
+
+<p>
+  <strong>Remark:</strong>
+  <%= @evidention.Remark %>
+</p>
+
+<%= link_to 'Edit', edit_evidention_path(@evidention) %> |
+<%= link_to 'Back', evidentions_path %>

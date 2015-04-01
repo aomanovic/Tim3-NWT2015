@@ -1,0 +1,2 @@
+module TmLinksHelper
+end
