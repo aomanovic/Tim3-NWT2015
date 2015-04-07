@@ -75,4 +75,20 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  # Raises error for missing translations
+  # config.action_view.raise_on_missing_translations = true
+  config.action_mailer.default_url_options = { :host => 'https://tim3-nwt.herokuapp.com' }
+  Rails.application.routes.default_url_options[:host] = 'https://tim3-nwt.herokuapp.com'
+
+  ActionMailer::Base.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+      address:              'smtp.gmail.com',
+      port:                 587,
+      domain:               'gmail.com',
+      user_name:            'healthmonitoretf',
+      password:             'nwt123456',
+      authentication:       'plain',
+      enable_starttls_auto: true  }
+
 end

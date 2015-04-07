@@ -60,3 +60,9 @@ end
 
 gem 'devise'
 gem 'omniauth'
+
+gem 'puma', '~> 2.11.1'
+
+#Pomoc ima na http://stackoverflow.com/questions/24183377/puma-installation-error-on-windows
+#Mora se skinuti openssl i ekstraktovati u folder C:/openssl i onda pokrenuti gem install puma -- --with-opt-dir=C:/openssl
+
