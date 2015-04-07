@@ -78,8 +78,9 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
-  config.action_mailer.default_url_options = { :host => 'https://tim3-nwt.herokuapp.com' }
-  Rails.application.routes.default_url_options[:host] = 'https://tim3-nwt.herokuapp.com'
+  config.action_mailer.default_url_options = { :host => 'tim3-nwt.herokuapp.com' }
+  config.log_formatter = ::Logger::Formatter.new
+  Rails.application.routes.default_url_options[:host] = 'tim3-nwt.herokuapp.com'
 
   ActionMailer::Base.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
