@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  devise_for :users
+  get 'pages/info'
+
+  root :to => redirect('/ideas')
+
+  resources :ideas
+
   resources :tm_links
 
   resources :dt_links
@@ -85,6 +92,6 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
 
-  root 'home#index'
+  # root 'home#index'
 
 end
