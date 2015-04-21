@@ -27,19 +27,19 @@ HealthMonitor::Application.configure do
   # number of complex assets.
   config.assets.debug = true
 
-  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
-  Rails.application.routes.default_url_options[:host] = 'localhost:3000'
-
-  ActionMailer::Base.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-      address:              'smtp.gmail.com',
-      port:                 587,
-      domain:               'gmail.com',
-      user_name:            'healthmonitoretf',
-      password:             'nwt123456',
-      authentication:       'plain',
-      enable_starttls_auto: true  }
-
+  # config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  # Rails.application.routes.default_url_options[:host] = 'localhost:3000'
+  #
+  # ActionMailer::Base.delivery_method = :smtp
+  # config.action_mailer.smtp_settings = {
+  #     address:              'smtp.gmail.com',
+  #     port:                 587,
+  #     domain:               'gmail.com',
+  #     user_name:            'healthmonitoretf',
+  #     password:             'nwt123456',
+  #     authentication:       'plain',
+  #     enable_starttls_auto: true  }
+  #
 
   # reCAPTCHA keys
   RECAPTCHA_PUBLIC_KEY= '6LeV5wQTAAAAAA4uCs95tbEZwBNP55UlSCiI21lC'
