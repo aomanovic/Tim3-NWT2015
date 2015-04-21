@@ -14,8 +14,8 @@
 //= require jquery_ujs
 //= require angular/angular
 //= require angular-route/angular-route
+//= require angular-resource/angular-resource
 //= require angular-rails-templates
-//= require angular-app/app
-//= require_tree ./templates
-//= require_tree ./angular-app/controllers
+//= require angular-re-captcha/angular-re-captcha
 //= require_tree .
+

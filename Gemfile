@@ -1,68 +1,65 @@
-source 'https://rubygems.org'
-
+source 'http://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.1.8'
-# Use postgresql as the database for Active Record
-gem 'pg'
+gem 'rails', '4.0.7'
 
-gem 'carrierwave'
+# Use sqlite3 as the database for Active Record
+# gem 'sqlite3'
+
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.3'
+gem 'sass-rails', '~> 4.0.2'
+
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
+
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails', '~> 4.0.0'
+
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-# gem 'therubyracer',  platforms: :ruby
+# gem 'therubyracer', platforms: :ruby
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 
+
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.0'
-gem 'sass', '3.2.19'
-group :test, :development do
-  gem "rspec-rails", "~> 2.0"
-  gem "factory_girl_rails", "~> 4.0"
-  gem "capybara"
-  gem "database_cleaner"
-  gem "selenium-webdriver"
+gem 'jbuilder', '~> 1.2'
+
+group :doc do
+  # bundle exec rake doc:rails generates the API under doc/api.
+  gem 'sdoc', require: false
 end
 
-# bundle exec rake doc:rails generates the API under doc/api.
-gem 'sdoc', '~> 0.4.0',          group: :doc
-
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.10'
 
+# Use postgreSQL DBMS
+gem 'pg', '~> 0.18.1'
+
+# Use bower for front-end dependencies
+gem 'bower-rails'
+
+# JSON Web Token
+gem 'jwt'
+
+# Use angular routing and templates
+gem 'angular-rails-templates'
+
+# Use Google reCAPTCHA
+gem "recaptcha", :require => "recaptcha/rails"
+
+group :development do
+  gem 'byebug'
+end
+
+gem 'rails_12factor'
+
+gem 'thin'
 # Use unicorn as the app server
 # gem 'unicorn'
 
 # Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
+# gem 'capistrano', group: :development
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin]
-gem 'bower-rails'
-gem 'angular-rails-templates'
-gem "foreman"
-gem 'bootstrap_form'
-group :production, :staging do
-  gem "rails_12factor"
-  gem "rails_stdout_logging"
-  gem "rails_serve_static_assets"
-end
-
-
-gem 'devise'
-gem 'omniauth'
-
-gem 'puma', '~> 2.11.1'
-
-#Pomoc ima na http://stackoverflow.com/questions/24183377/puma-installation-error-on-windows
-#Mora se skinuti openssl i ekstraktovati u folder C:/openssl i onda pokrenuti gem install puma -- --with-opt-dir=C:/openssl
-
