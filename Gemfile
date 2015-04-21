@@ -63,3 +63,5 @@ gem 'thin'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+gem 'puma', '~> 2.11.1'
