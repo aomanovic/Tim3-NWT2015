@@ -65,3 +65,5 @@ gem 'thin'
 # gem 'debugger', group: [:development, :test]
 
 gem 'puma', '~> 2.11.1'
+
+gem 'rails_12factor', group: :production
