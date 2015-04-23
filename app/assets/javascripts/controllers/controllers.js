@@ -55,7 +55,7 @@ controllers.controller('boardCtrl', ['$scope', '$location', 'boardFactory', 'Aut
 controllers.controller('signupCtrl', ['$scope', '$location', 'usersFactory', 'reCAPTCHA', 'flash',
     function($scope, $location, usersFactory, reCAPTCHA, flash) {
     $scope.submitted = false; // Set form unsubmitted to unable validation messages
-    reCAPTCHA.setPublicKey('6LeV5wQTAAAAAA4uCs95tbEZwBNP55UlSCiI21lC');
+    reCAPTCHA.setPublicKey('6LcYyAUTAAAAAGmKbZzezViiAFyfqp1uqwscxSWL');
     $scope.createNewUser = function() {
       if ($scope.signupform.$valid) {
         usersFactory.create($scope.user)

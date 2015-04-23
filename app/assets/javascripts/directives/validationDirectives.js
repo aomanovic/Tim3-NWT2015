@@ -50,7 +50,7 @@ validator.directive('validatePasswordCharacters', function () {
 // Configuration of captcha
 validator.config(function (reCAPTCHAProvider) {
     // required
-    reCAPTCHAProvider.setPublicKey('6LeV5wQTAAAAAA4uCs95tbEZwBNP55UlSCiI21lC');
+    reCAPTCHAProvider.setPublicKey('6LcYyAUTAAAAAGmKbZzezViiAFyfqp1uqwscxSWL');
     // optional
     reCAPTCHAProvider.setOptions({
         theme: 'clean'

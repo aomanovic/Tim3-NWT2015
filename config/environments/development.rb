@@ -28,6 +28,6 @@ HealthMonitor::Application.configure do
   config.assets.debug = true
 
   # reCAPTCHA keys
-  RECAPTCHA_PUBLIC_KEY= '6LeV5wQTAAAAAA4uCs95tbEZwBNP55UlSCiI21lC'
-  RECAPTCHA_PRIVATE_KEY= '6LeV5wQTAAAAAMrkZASznvOsrM3-h9WPxjwwskao'
+  RECAPTCHA_PUBLIC_KEY= '6LcYyAUTAAAAAGmKbZzezViiAFyfqp1uqwscxSWL'
+  RECAPTCHA_PRIVATE_KEY= '6LcYyAUTAAAAAF9pWi4vpmzviQjfmAjebD3banks'
 end
