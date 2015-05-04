@@ -5,6 +5,7 @@
     "bootstrap-sass-official": "latest",
     "angular-route": "latest",
     "angular-resource": "latest",
-    "angular-re-captcha": "latest"
+    "angular-re-captcha": "latest",
+    "angular-ui-bootstrap-bower": "latest"
   }
 }

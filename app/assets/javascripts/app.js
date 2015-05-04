@@ -7,6 +7,7 @@ var app = angular.module('app', [
   'auth',
   'services',
   'validator',
+  'ui.bootstrap',
   'custom'
 ]);
 
