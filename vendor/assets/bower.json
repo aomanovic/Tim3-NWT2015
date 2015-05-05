@@ -4,8 +4,8 @@
     "angular": "latest",
     "bootstrap-sass-official": "latest",
     "angular-route": "latest",
+    "angular-ui-bootstrap-bower": "latest",
     "angular-resource": "latest",
-    "angular-re-captcha": "latest",
-    "angular-ui-bootstrap-bower": "latest"
+    "angular-re-captcha": "latest"
   }
 }
