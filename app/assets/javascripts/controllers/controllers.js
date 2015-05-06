@@ -33,9 +33,6 @@ controllers.controller('dashboardCtrl', ['$scope', '$location', 'dashboardFactor
   function($scope, $location, dashboardFactory, $translate) {
     dashboardFactory.get();
     $scope.title = 'DASHBOARD';
-    $scope.openActivity = function(url) {
-      $location.path(url);
-    }
 
        $scope.openNewSymptom = function() {
         $location.path('/newSymptom');
@@ -54,16 +51,6 @@ controllers.controller('logoutCtrl', ['$scope', '$location', 'AuthToken',
       $location.path('#/');
 }]);
 
-
-// Board controller
-controllers.controller('boardCtrl', ['$scope', '$location', 'boardFactory', 'AuthToken',
-  function($scope, $location, boardFactory, AuthToken) {
-    $scope.content = boardFactory.get(function(result) {
-      $scope.statuses = result.document.board.statuses;
-      $scope.title = result.document.board.sprint.name;
-      $scope.description = result.document.board.sprint.start_date + '-' + result.document.board.sprint.end_date;
-    });
-}]);
 
 // Signup controller
 controllers.controller('signupCtrl', ['$scope', '$location', 'usersFactory', 'reCAPTCHA', 'flash',
@@ -94,7 +81,7 @@ controllers.controller('resetCtrl', ['$scope', '$location','resetFactory',
     }
 }]);
 
-// New project controller
+// New symptom controller
 controllers.controller('newSymptomCtrl', ['$scope', '$location','symptomFactory','$translate',
   function($scope, $location,symptomFactory,$translate) {
      $scope.title = 'NEW_SYMPTOM';

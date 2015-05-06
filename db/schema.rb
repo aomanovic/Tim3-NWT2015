@@ -133,8 +133,8 @@ ActiveRecord::Schema.define(version: 20150401035512) do
   end
 
   create_table "symptoms", force: true do |t|
-    t.string   "code"
     t.string   "name"
+    t.string   "code"
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -153,6 +153,13 @@ ActiveRecord::Schema.define(version: 20150401035512) do
     t.integer  "MedicamentID"
     t.string   "Quantity"
     t.string   "Description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "user_symptoms", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "symptom_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

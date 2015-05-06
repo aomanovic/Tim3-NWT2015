@@ -32,10 +32,6 @@ app.config(['$routeProvider',
         templateUrl: 'dashboard.html',
         controller: 'dashboardCtrl'
       }).
-       when('/projects/1/board', {
-        templateUrl: 'board.html',
-        controller: 'boardCtrl'
-      }).
 	     when('/reset', {
         templateUrl: 'reset.html',
         controller: 'resetCtrl'

@@ -3,13 +3,13 @@ module Domain
     class AddWrapping
       def initialize content, user
         @content = content
-        @projects = user.projects.map {|p| p.name}
+        @symptoms = user.symptoms.map {|s| s.name}
       end
 
       def decorate
         {
           content: @content,
-          projects: @projects
+          symptoms: @symptoms
         }
       end
     end

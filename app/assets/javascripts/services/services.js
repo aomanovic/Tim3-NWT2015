@@ -16,9 +16,8 @@ services.factory('dashboardFactory', function ($http, $q, $location, $rootScope,
   return {
     get: function() {
       var d = $q.defer();
-      $http.get('api/dashboard', {}).success(function(resp) {
-        if(resp.status.message == "OK") { $rootScope.activities = resp.document.dashboard.content;
-                                          $rootScope.projects = resp.document.dashboard.projects;
+      $http.get('/dashboard', {}).success(function(resp) {
+        if(resp.status.message == "OK") {
                                           $rootScope.logged_user = resp.user.username;
                                         }
       }).error(function(resp) {
@@ -31,12 +30,6 @@ services.factory('dashboardFactory', function ($http, $q, $location, $rootScope,
   };
 });
 
-// Factory for dashboard
-services.factory('boardFactory', function ($resource) {
-  return $resource('/api/projects/1/board', {}, {
-    get: { method: 'GET' }
-  })
-});
 
 
 
