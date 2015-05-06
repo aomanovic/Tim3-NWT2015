@@ -1,5 +1,5 @@
 class Api::UsersController < ApiController
-  before_filter :restrict_api_access, only: [:update, :destroy, :show]
+  before_filter :restrict_api_access, except: [:create, :confirm, :reset_password]
 
   # Public:
   # POST /api/users
@@ -15,7 +15,7 @@ class Api::UsersController < ApiController
     if verify_recaptcha
       user.save!
       begin
-        UserMailer.confirmation_email(user, request.url.split('/api').first).deliver
+        UserMailer.confirmation_email(user).deliver
       rescue
         puts 'Failed to send email'
       end

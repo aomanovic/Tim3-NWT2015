@@ -4,7 +4,7 @@ class Api::MembersController < ApiController
   # Adds new member on specified project.
   # POST   /api/projects/:project_id/members    api/members#create
   def create
-    UserProject.create(:user_id => params[:id], :project_id => params[:project_id], :role_id => Role.member)
+    UserSymptom.create(:user_id => params[:id], :symptom_id => params[:symptom_id])
     render response: { :message => "Member added."}
   end
 
@@ -34,7 +34,7 @@ class Api::MembersController < ApiController
   # DELETE /api/projects/:project_id/members/:id   api/members#destroy
   def destroy
     begin
-      UserProject.find_by(:user_id => params[:id]).destroy
+      UserSymptom.find_by(:user_id => params[:id]).destroy
       render response: { :users => "Member deleted." }
     rescue
       raise NotAuthorized

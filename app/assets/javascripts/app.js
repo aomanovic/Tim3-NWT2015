@@ -7,8 +7,10 @@ var app = angular.module('app', [
   'auth',
   'services',
   'validator',
-  'ui.bootstrap',
-  'custom'
+  'custom',
+  'view_directives',
+  'pascalprecht.translate',
+  'ui.bootstrap'
 ]);
 
 app.config(['$routeProvider',
@@ -37,6 +39,14 @@ app.config(['$routeProvider',
 	     when('/reset', {
         templateUrl: 'reset.html',
         controller: 'resetCtrl'
+      }).
+      when('/logout', {
+        templateUrl: 'index.html',
+        controller: 'logoutCtrl'
+      }).
+       when('/newSymptom', {
+        templateUrl: 'new_symptom.html',
+        controller: 'newSymptomCtrl'
       }).
       otherwise({
         redirectTo: '/'

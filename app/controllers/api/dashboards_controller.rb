@@ -3,8 +3,8 @@ class Api::DashboardsController < ApiController
 
   #Shows all dashboard data for current user. Dashboard contains all notifications (adjusted representation) and projects assigned to user.
   def show
-    activities = Activity.where("trackable_type = 'Project' and trackable_id in (?)", @current_user.projects.map {|p| p.id})
-    content = Domain::Decorators::AddWrapping.new(activities.map(&:serializable_hash), @current_user).decorate
+    symptoms = Symptom.where("symptom_id in (?)", @current_user.symptoms.map {|p| p.id})
+    content = Domain::Decorators::AddWrapping.new(symptoms.map(&:serializable_hash), @current_user).decorate
     render response: { dashboard: content }
   end
 end

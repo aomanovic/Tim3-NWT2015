@@ -1,0 +1,58 @@
+app.config(function($translateProvider) {
+  $translateProvider.translations('en', {
+    DASHBOARD: 'Dashboard',
+    BUTTON_TEXT_EN: 'En*',
+    BUTTON_TEXT_BS: 'Bs',
+    LOGOUT: 'Logout',
+    LOGIN: 'Login',
+    SIGNUP: 'Sign up',
+    WELCOME: 'Welcome to Health Monitor',
+    FIRSTNAME: 'Firstname',
+    EMAIL: 'E-mail:',
+    PASSWORD: 'Password:',
+    FORGOT_PASS: 'Forgot password?',
+    FIRSTNAME: 'Firstname:',
+    LASTNAME: 'Lastname:',
+    USERNAME: 'Username:',
+    PASSWORD_CONFIRM: 'Re-type your password:',
+    BACK_TO_HOME: 'Back to Home',
+    SUBMIT: 'Submit',
+    NEW_SYMPTOM: 'New symptom',
+    SYMPTOM: 'Symptom',
+    NAME: 'Name',
+    SYMPTOM_FORM: 'New symptom form',
+    NAME_SYMPTOM: 'Name of the symptom',
+    CODE_SYMPTOM: 'Code of the symptom',
+    DESCRIPTION: 'Description',
+    SAVE_SYMPTOM: 'Save symptom'
+  })
+  .translations('bs', {
+    DASHBOARD: 'Komandna Tabla',
+    BUTTON_TEXT_EN: 'En',
+    BUTTON_TEXT_BS: 'Bs*',
+    LOGOUT: 'Odjava',
+    LOGIN: 'Prijava',
+    SIGNUP: 'Registracija',
+    WELCOME: 'Dobrodosli na Health Monitor',
+    FIRSTNAME: 'Ime:',
+    EMAIL: 'E-adresa:',
+    PASSWORD: 'Sifra:',
+    FORGOT_PASS: 'Zaboravili ste sifru?',
+    FIRSTNAME: 'Ime:',
+    LASTNAME: 'Prezime:',
+    USERNAME: 'Korisnicko ime:',
+    PASSWORD_CONFIRM: 'Potvrda sifre:',
+    BACK_TO_HOME: 'Nazad na Pocetnu',
+    SUBMIT: 'Potvrdi',
+    NEW_SYMPTOM: 'Novi simptom',
+    SYMPTOM: 'Simptom',
+    NAME: 'Naziv',
+    SYMPTOM_FORM: 'Forma za novi simptom',
+    NAME_SYMPTOM: 'Naziv simptoma',
+    CODE_SYMPTOM: 'Kod simptoma',
+    DESCRIPTION: 'Opis',
+    SAVE_SYMPTOM: 'Sačuvaj simptom'
+  });
+   $translateProvider.preferredLanguage('en');
+});
+

@@ -1,6 +1,6 @@
 'use strict';
 
-//Controllers
+// Controllers
 
 var controllers = angular.module('controllers', []);
 
@@ -29,13 +29,29 @@ controllers.controller('loginCtrl', ['$scope', '$routeParams', 'AuthService', '$
 }]);
 
 // Dashboard controller
-controllers.controller('dashboardCtrl', ['$scope', '$location', 'dashboardFactory', 'AuthToken',
-  function($scope, $location, dashboardFactory, AuthToken) {
+controllers.controller('dashboardCtrl', ['$scope', '$location', 'dashboardFactory', '$translate',
+  function($scope, $location, dashboardFactory, $translate) {
     dashboardFactory.get();
-    $scope.LogOut = function() {
+    $scope.title = 'DASHBOARD';
+    $scope.openActivity = function(url) {
+      $location.path(url);
+    }
+
+       $scope.openNewSymptom = function() {
+        $location.path('/newSymptom');
+      }
+        $scope.showSymptom = function() {
+          window.alert("This will show data of a symptom");
+      }
+
+
+}]);
+
+// Logout controller
+controllers.controller('logoutCtrl', ['$scope', '$location', 'AuthToken',
+  function($scope, $location, AuthToken) {
       AuthToken.unset('auth_token');
       $location.path('#/');
-    }
 }]);
 
 
@@ -44,11 +60,9 @@ controllers.controller('boardCtrl', ['$scope', '$location', 'boardFactory', 'Aut
   function($scope, $location, boardFactory, AuthToken) {
     $scope.content = boardFactory.get(function(result) {
       $scope.statuses = result.document.board.statuses;
+      $scope.title = result.document.board.sprint.name;
+      $scope.description = result.document.board.sprint.start_date + '-' + result.document.board.sprint.end_date;
     });
-    $scope.LogOut = function() {
-      AuthToken.unset('auth_token');
-      $location.path('#/');
-    }
 }]);
 
 // Signup controller
@@ -71,7 +85,7 @@ controllers.controller('signupCtrl', ['$scope', '$location', 'usersFactory', 're
     }
 }]);
 
-//Reset controller
+// Reset password controller
 controllers.controller('resetCtrl', ['$scope', '$location','resetFactory',
   function($scope, $location,resetFactory) {
     $scope.doReset = function() {
@@ -79,3 +93,23 @@ controllers.controller('resetCtrl', ['$scope', '$location','resetFactory',
          $location.path('#/login');
     }
 }]);
+
+// New project controller
+controllers.controller('newSymptomCtrl', ['$scope', '$location','symptomFactory','$translate',
+  function($scope, $location,symptomFactory,$translate) {
+     $scope.title = 'NEW_SYMPTOM';
+       $scope.showSymptom = function() {
+          window.alert("This will show data of a symptom");
+      }
+
+    $scope.saveSymptom = function() {
+        symptomFactory.create($scope.symptom.name,$scope.symptom.code,$scope.symptom.description)
+          .success(function(resp) {
+                $location.path('/dashboard');
+          }).error(function(resp) {
+            $location.path('/newSymptom');
+          });
+
+    }
+}]);
+
