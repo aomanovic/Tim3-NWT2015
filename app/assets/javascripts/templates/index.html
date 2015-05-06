@@ -1,25 +1,8 @@
-<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+<div class="page-header">
     <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">Health Monitor</a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-
-        </div><!--/.navbar-collapse -->
-    </div>
-</nav>
-
-<div class="jumbotron">
-    <div class="container">
-        <h1>Welcome to HealthMonitor! </h1>
-        <button class="btn btn-primary btn-lg" ng-click="openLogin()">Login</button>
-        <button class="btn btn-primary btn-lg" ng-click="openSignup()">Sign up</button>
+        <h1 translate="WELCOME"></h1>
+        <button class="btn btn-primary" ng-click="openLogin()" translate="LOGIN"></button>
+        <button class="btn btn-primary" ng-click="openSignup()" translate="SIGNUP">Sign up</button>
         <br><br>
         <p>{{flash.getMessage()}}</p>
     </div>

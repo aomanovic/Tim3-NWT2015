@@ -1,37 +1,17 @@
 <div class="container">
     <div class="row">
-        <div class="page-header">
-            <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-                <div class="container">
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                        <a class="navbar-brand" ng-href="/#/dashboard">Dashboard</a>
-                    </div>
-                    <div id="navbar" class="navbar-collapse collapse">
-                        <div class="navbar-brand navbar-right">
-                        <p><a href="" ng-click="LogOut()">Log Out</a></p>
-                        </div>
-                    </div><!--/.navbar-collapse -->
-                </div>
-            </nav>
-        </div>
+        <header title='title'></header>
     </div>
 
     <div class="col-md-3">
-        <div class="jumbotron">
-            <p><a ng-href="/#/dashboard">Dashboard</a></p>
-
-            <p><a href="" ng-click="LogOut()">Log Out</a></p>
-        </div>
+        <menu></menu>
     </div>
     <div class="col-md-9">
-        <h3>Ovo je neki sadrzaj</h3>
-
-        <p>{{ content }}</p>
+        <div ng-repeat="activity in activities | orderBy:'timestamp'" ng-animate="'animate'">
+            <a class="jumbotron col-sm-6" href="{{activity.msg.url}}" id="activity">
+                <span class="{{activity.msg.icon}}"> {{activity.msg.content | translate}}</span><br><br>
+                <small id="timestamp" ng-model="activity.timestamp">{{activity.timestamp}}</small>
+            </a>
+        </div>
     </div>
 </div>
