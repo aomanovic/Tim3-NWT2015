@@ -1,7 +1,7 @@
 development:
   adapter: postgresql
   encoding: utf-8
-  database: healthmon
+  database: healthmonitor
   pool: 50
   username: root
   password: root
@@ -19,7 +19,7 @@ test:
 production:
   adapter: postgresql
   encoding: utf-8
-  database: healthmon
+  database: healthmonitor
   pool: 50
   username: root
   password: root
