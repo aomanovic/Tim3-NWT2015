@@ -41,6 +41,12 @@ controllers.controller('dashboardCtrl', ['$scope', '$location', 'dashboardFactor
           window.alert("This will show data of a symptom");
       }
 
+      $scope.openNewDiagnoses = function() {
+          $location.path('/newDiagnoses');
+      }
+      $scope.showDiagnoses = function() {
+          window.alert("This will show data of a diagnoses");
+      }
 
 }]);
 
@@ -96,7 +102,23 @@ controllers.controller('newSymptomCtrl', ['$scope', '$location','symptomFactory'
           }).error(function(resp) {
             $location.path('/newSymptom');
           });
-
     }
 }]);
 
+// New diagnosis controller
+controllers.controller('newDiagnosisCtrl', ['$scope', '$location','diagnosesFactory','$translate',
+    function($scope, $location,diagnosesFactory,$translate) {
+        $scope.title = 'NEW_DIAGNOSIS';
+        $scope.showDiagnosis = function() {
+            window.alert("This will show data of the diagnoses");
+        }
+
+        $scope.saveDiagnosis = function() {
+            diagnosesFactory.create($scope.diagnosis.name, $scope.diagnosis.code, $scope.diagnosis.description)
+                .success(function (resp) {
+                    $location.path('/dashboard');
+                }).error(function (resp) {
+                    $location.path('/newDiagnosis');
+                });
+        }
+    }]);

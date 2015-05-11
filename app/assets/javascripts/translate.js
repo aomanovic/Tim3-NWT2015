@@ -24,7 +24,15 @@ app.config(function($translateProvider) {
     NAME_SYMPTOM: 'Name of the symptom',
     CODE_SYMPTOM: 'Code of the symptom',
     DESCRIPTION: 'Description',
-    SAVE_SYMPTOM: 'Save symptom'
+    SAVE_SYMPTOM: 'Save symptom',
+      NEW_DIAGNOSIS: 'New diagnosis',
+      DIAGNOSIS: 'Diagnosis',
+      NAME: 'Name',
+      DIAGNOSIS_FORM: 'New diagnosis form',
+      NAME_DIAGNOSIS: 'Name of the diagnosis',
+      CODE_DIAGNOSIS: 'Code of the diagnosis',
+      DESCRIPTION: 'Description',
+      SAVE_DIAGNOSIS: 'Save diagnosis'
   })
   .translations('bs', {
     DASHBOARD: 'Komandna Tabla',
@@ -51,7 +59,16 @@ app.config(function($translateProvider) {
     NAME_SYMPTOM: 'Naziv simptoma',
     CODE_SYMPTOM: 'Kod simptoma',
     DESCRIPTION: 'Opis',
-    SAVE_SYMPTOM: 'Sačuvaj simptom'
+    SAVE_SYMPTOM: 'Sačuvaj simptom',
+          NEW_DIAGNOSIS: 'Novi dijagnoze',
+          DIAGNOIES: 'Dijagnoza',
+          NAME: 'Naziv',
+          DIAGNOSIS_FORM: 'Forma za novu dijagnozu',
+          NAME_DIAGNOSIS: 'Naziv dijagnoze',
+          CODE_DIAGNOSIS: 'Kod dijagnoze',
+          DESCRIPTION: 'Opis',
+          SAVE_DIAGNOSIS: 'Sačuvaj dijagnozu'
+
   });
    $translateProvider.preferredLanguage('en');
 });

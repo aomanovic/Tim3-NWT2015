@@ -12,3 +12,19 @@
 </div>
 </div>
  </div>
+
+ <div class="jumbotron">
+     <br>
+     <button class="btn btn-default" data-toggle="modal" ng-click="openNewDiagnosis()" translate="NEW_DIAGNOSIS">
+         New diagnosis
+         <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+     </button>
+     <div class="btn-group btn-block">
+         <div ng-repeat="diagnosis in  diagnoses">
+             <button class="btn btn-default" ng-click="showDiagnosis()">
+                 {{diagnoses}}
+             </button>
+
+         </div>
+     </div>
+ </div>

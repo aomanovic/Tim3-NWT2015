@@ -44,6 +44,10 @@ app.config(['$routeProvider',
         templateUrl: 'new_symptom.html',
         controller: 'newSymptomCtrl'
       }).
+        when('/newDiagnosis', {
+            templateUrl: 'new_diagnosis.html',
+            controller: 'newDiagnosisCtrl'
+        }).
       otherwise({
         redirectTo: '/'
       });

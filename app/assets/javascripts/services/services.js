@@ -59,3 +59,12 @@ services.factory('symptomFactory', function ($http, $q, $location, $rootScope) {
     }
   };
 });
+
+// Factory for users
+services.factory('diagnosesFactory', function ($http, $q, $location, $rootScope) {
+    return {
+      create: function(name,code,description) {
+                return $http.post('api/diagnoses', {name : name,code:code,description:description});
+            }
+        };
+});

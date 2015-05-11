@@ -2,6 +2,10 @@ class User < ActiveRecord::Base
   has_one  :session
   has_many :symptoms, :through => :user_symptoms
   has_many :user_symptoms
+
+  has_many :diagnoses, :through => :user_diagnoses
+  has_many :user_diagnoses
+
   has_secure_password
   #Callbacks because some database adapters use case-sensitive indices
   before_save { self.email = email.downcase }
