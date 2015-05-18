@@ -1,5 +1,5 @@
 // CRUD services for application resources
-var services = angular.module('services', ['ngResource']);
+var services = angular.module('services', ['ngResource', 'ngCookies']);
 
 
 // Factory for users
@@ -7,7 +7,14 @@ services.factory('usersFactory', function ($http, $q, $location, $rootScope, fla
   return {
     create: function(user) {
       return $http.post('api/users', { user: user });
-    }
+    },
+    index: function() {
+          return $http.get('/api/users');
+    },
+    is_admin: function(user) {
+      return $http.post('api/users/is_admin', { user: user });
+      }
+
   };
 });
 
@@ -16,12 +23,12 @@ services.factory('dashboardFactory', function ($http, $q, $location, $rootScope,
   return {
     get: function() {
       var d = $q.defer();
-      $http.get('/dashboard', {}).success(function(resp) {
-        if(resp.status.message == "OK") {
-                                          $rootScope.logged_user = resp.user.username;
+      $http.get('/api/dashboard', {}).success(function(response) {
+        if(response.message == "OK") {
+                                          $rootScope.logged_user = response.user;
                                         }
       }).error(function(resp) {
-        flash.setMessage(resp.status.message);
+        flash.setMessage(resp.message);
         $location.path('/');
       });
       return d.promise;
@@ -67,4 +74,19 @@ services.factory('diagnosesFactory', function ($http, $q, $location, $rootScope)
                 return $http.post('api/diagnoses', {name : name,code:code,description:description});
             }
         };
+});
+
+// Factory for messages
+services.factory('messagesFactory', function ($http) {
+    return {
+        all: function() {
+            return $http.get('/api/messages')
+        },
+        get: function(id) {
+            return $http.get('/api/messages/' + id);
+        },
+        create: function(params) {
+            return $http.post('/api/messages', params);
+        }
+    };
 });

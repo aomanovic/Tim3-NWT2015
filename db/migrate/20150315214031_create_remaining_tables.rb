@@ -15,6 +15,11 @@ class CreateRemainingTables < ActiveRecord::Migration
     	t.timestamps
     end
 
+    create_table :user_types do |t|
+      t.string :user_type
+      t.timestamps
+    end
+
     create_table :diagnoses do |t|
       t.string :name
       t.string :code
@@ -34,6 +39,7 @@ class CreateRemainingTables < ActiveRecord::Migration
   def down
   	drop_table :symptoms
   	drop_table :user_symptoms
+    drop_table :user_types
 
     drop_table :diagnoses
     drop_table :user_diagnoses

@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   has_one  :session
   has_many :symptoms, :through => :user_symptoms
   has_many :user_symptoms
+  belongs_to :user_type
 
   has_many :diagnoses, :through => :user_diagnoses
   has_many :user_diagnoses
@@ -18,6 +19,8 @@ class User < ActiveRecord::Base
   validates :username, presence: true, length: {minimum: 5, maximum: 15},
                       uniqueness: { case_sensitive: false }, :if => :username_changed?
   validates :password, length: { minimum: 6 }, :if => :password_digest_changed?
+
+  validates :user_type_id, presence: true
 
   scope :active, -> { where(is_active: true) }
 

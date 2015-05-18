@@ -9,6 +9,8 @@ class CreateUsers < ActiveRecord::Migration
       t.string :session_key
       t.boolean  :is_active, default: true, null: false
 
+      t.integer :user_type_id
+
       t.timestamps
     end
   end

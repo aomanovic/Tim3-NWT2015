@@ -65,3 +65,8 @@ gem 'thin'
 # gem 'debugger', group: [:development, :test]
 
 gem 'puma', '~> 2.11.1'
+
+gem 'font-awesome-rails', '~> 4.3.0.0'
+gem 'font-awesome-sass', '~> 4.3.0'
+
+gem 'chart-js-rails'

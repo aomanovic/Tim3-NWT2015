@@ -7,6 +7,13 @@
     "angular-ui-bootstrap-bower": "latest",
     "angular-resource": "latest",
     "angular-re-captcha": "latest",
-    "angular-translate": "latest"
+    "angular-translate": "latest",
+    "angular-nvd3": "latest",
+    "underscore": "latest",
+    "oi.multiselect": "latest",
+    "jquery-ui": "latest",
+    "angular-ui-sortable": "latest",
+    "angular-chartjs-directive": "latest",
+    "angular-cookies": "latest"
   }
 }

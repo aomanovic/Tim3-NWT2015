@@ -64,6 +64,29 @@ class Api::UsersController < ApiController
     end
   end
 
+  def all
+    users = User.all
+    respond_to do |format|
+      format.json {
+        if users.nil?
+          render :json => {:error => "true", :message => (t "user.doesnt_exist")}
+        else
+          render :json => users
+        end
+      }
+    end
+
+  end
+
+
+  def current
+    respond_to do |format|
+      format.json {
+        render :json => {:username => session[:user_name], :userType => session[:user_type], :userID => session[:user_id]}
+      }
+    end
+  end
+
   # Public:
   # DELETE /api/users/:id
   # @params: :id
@@ -113,6 +136,12 @@ class Api::UsersController < ApiController
     render response: { :isUnique => User.exists?(:email => params[:field]) }
   end
 
+  def is_admin
+    if @current_user.id == params[:id]
+        render response: { :isAdmin => (@current_user.user_type_id == 1) }
+    end
+  end
+
   # Public:
   # POST /api/users/check_username
   # @params: :field
@@ -130,11 +159,16 @@ class Api::UsersController < ApiController
   def change_password_form
   end
 
+  #Shows all users
+  def index
+    users = User.all
+    render response: { users: users}
+  end
 
   private
   # Parameters for creating new user
   def user_params
-    params.require(:user).permit(:firstname, :lastname, :email, :username, :password, :password_confirmation)
+    params.require(:user).permit(:firstname, :lastname, :email, :username, :password, :password_confirmation, :user_type_id)
   end
 
   # Parameters for updating information of existing user

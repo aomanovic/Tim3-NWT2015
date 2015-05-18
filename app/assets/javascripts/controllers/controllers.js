@@ -2,12 +2,12 @@
 
 // Controllers
 
-var controllers = angular.module('controllers', []);
+var controllers = angular.module('controllers', ['ngCookies']);
 
 // Index controller
 controllers.controller('indexCtrl', ['$scope', '$location', 'flash', 'AuthToken',
   function($scope, $location, flash, AuthToken) {
-    if(AuthToken.get('auth_token')) $location.path('/dashboard');
+    if(AuthToken.get('auth_token')) $location.path('/admin');
     $scope.flash = flash;
     $scope.openLogin = function() {
         $location.path('/login');
@@ -29,31 +29,52 @@ controllers.controller('loginCtrl', ['$scope', '$routeParams', 'AuthService', '$
 }]);
 
 // Dashboard controller
-controllers.controller('dashboardCtrl', ['$scope', '$location', 'dashboardFactory', '$translate',
-  function($scope, $location, dashboardFactory, $translate) {
+controllers.controller('dashboardCtrl', ['$scope', '$location', 'dashboardFactory', '$translate', '$cookieStore', '$rootScope',
+  function($scope, $location, dashboardFactory, $translate, $cookieStore,$rootScope) {
     dashboardFactory.get();
     $scope.title = 'DASHBOARD';
+        if($rootScope.getUser().user_type_id==1)
+             $location.path('/admin');
+         $location.path('/dashboard');
 
        $scope.openNewSymptom = function() {
         $location.path('/newSymptom');
       }
         $scope.showSymptom = function() {
-          window.alert("This will show data of a symptom");
+          alert("This will show data of a symptom");
       }
 
-      $scope.openNewDiagnoses = function() {
-          $location.path('/newDiagnoses');
+      $scope.openNewDiagnosis = function() {
+          $location.path('/newDiagnosis');
       }
-      $scope.showDiagnoses = function() {
-          window.alert("This will show data of a diagnoses");
+      $scope.showDiagnosis = function() {
+          alert("This will show data of a diagnoses");
       }
 
 }]);
 
+// Dashboard controller
+controllers.controller('adminCtrl', ['$scope', '$location', 'usersFactory', '$translate', '$rootScope',
+    function($scope, $location, usersFactory, $translate,$rootScope) {
+
+        $scope.title = 'ADMIN';
+
+
+       usersFactory.index()
+            .success(function(resp) {
+                $scope.users = resp.document.users;
+               $rootScope.logged_user = resp.user.username;
+
+            });
+        $scope.user = $rootScope.logged_user;
+
+    }]);
+
 // Logout controller
-controllers.controller('logoutCtrl', ['$scope', '$location', 'AuthToken',
-  function($scope, $location, AuthToken) {
+controllers.controller('logoutCtrl', ['$scope', '$location', 'AuthToken', '$cookieStore',
+  function($scope, $location, AuthToken, $cookieStore) {
       AuthToken.unset('auth_token');
+      $cookieStore.remove('currentUser');
       $location.path('#/');
 }]);
 
@@ -122,3 +143,56 @@ controllers.controller('newDiagnosisCtrl', ['$scope', '$location','diagnosesFact
                 });
         }
     }]);
+
+controllers.controller('alertsCtrl', ['$scope', 'alertService', function($scope, alertService) {
+    $scope.alerts = alertService.get();
+
+    $scope.closeAlert = function(index) {
+        alertService.close(index);
+    };
+}]);
+
+controllers.controller('inboxCtrl', ['$scope', 'messagesFactory', function($scope, messagesFactory) {
+    $scope.title = "INBOX";
+
+    messagesFactory.all()
+        .success(function(data) {
+            $scope.messages = data.document.messages;
+            $scope.summary = data.document.message;
+            var chartsBuilder = new ChartsBuilder($scope.summary);
+            $scope.charts = chartsBuilder.build();
+        });
+}]);
+
+controllers.controller('messageCtrl', ['$scope', 'messagesFactory', '$routeParams', function($scope, messagesFactory, $routeParams) {
+    $scope.title = "INBOX";
+
+    messagesFactory.get($routeParams.id)
+        .success(function(data) {
+            $scope.message = data.document.message;
+        });
+}]);
+
+controllers.controller('newMessageCtrl', ['$scope', 'messagesFactory', 'usersFactory', 'alertService', '$location',
+    function($scope, messagesFactory, usersFactory, alertService, $location) {
+        $scope.title = "INBOX";
+        usersFactory.index()
+            .success(function(data) {
+                $scope.users = data.document.users;
+            });
+
+        $scope.sendMessage = function() {
+            messagesFactory.create({
+                title: $scope.subject,
+                content: $scope.content,
+                recipient: $scope.username
+            }).success(function(data) {
+                $location.path('/inbox');
+            }).error(function(data) {
+                alertService.add(data.status.message, 'danger');
+            })
+
+
+        }
+    }]);
+

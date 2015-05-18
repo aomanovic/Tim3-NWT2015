@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150511201204) do
+ActiveRecord::Schema.define(version: 20150516131129) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -102,6 +102,15 @@ ActiveRecord::Schema.define(version: 20150511201204) do
     t.datetime "updated_at"
   end
 
+  create_table "messages", force: true do |t|
+    t.integer  "from_id"
+    t.integer  "to_id"
+    t.string   "title"
+    t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "people", force: true do |t|
     t.string   "Name"
     t.string   "Surname"
@@ -165,9 +174,7 @@ ActiveRecord::Schema.define(version: 20150511201204) do
   end
 
   create_table "user_types", force: true do |t|
-    t.string   "Code"
-    t.string   "Name"
-    t.string   "Description"
+    t.string   "user_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -179,6 +186,7 @@ ActiveRecord::Schema.define(version: 20150511201204) do
     t.string   "username"
     t.string   "password_digest"
     t.boolean  "is_active",       default: true, null: false
+    t.integer  "user_type_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

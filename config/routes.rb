@@ -1,12 +1,15 @@
 HealthMonitor::Application.routes.draw do
   root 'home#index'
 
+  get 'admin', :controller => 'home_controller', :action => :admin, as: 'admin'
+
   namespace :api do
     resources :sessions, only: :create
 
-    resources :users, only: [:create, :update, :destroy, :show] do
+    resources :users, only: [:create, :update, :destroy, :show,:index] do
       collection do
         post :check_email
+        post :is_admin
         post :check_username
         get  :change_password_form
         put  :change_password
@@ -19,6 +22,7 @@ HealthMonitor::Application.routes.draw do
     resources :symptoms do
     end
 
+    resources :messages, only: [:index, :show, :create]
     resource :dashboard, only: :show
   end
 

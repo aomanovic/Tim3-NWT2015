@@ -7,7 +7,8 @@ class Api::SessionsController < ApiController
   # Authenticates the user
   def create
     session_key = User.authenticate(params[:email], params[:password])
+    user = User.active.find_by(email: params[:email])
     raise InvalidAuthentication unless session_key
-    render response: { session_key: session_key }
+    render response: { session_key: session_key, user: user }
   end
 end

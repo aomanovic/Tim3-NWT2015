@@ -6,12 +6,29 @@ var app = angular.module('app', [
   'controllers',
   'auth',
   'services',
+  'alertService',
   'validator',
   'custom',
   'view_directives',
   'pascalprecht.translate',
-  'ui.bootstrap'
+  'ui.bootstrap',
+  'oi.multiselect',
+  'nvd3',
+  'ui.sortable',
+    'ngCookies'
 ]);
+
+app.run(function ($rootScope, $cookieStore) {
+    $rootScope.setUser=function(user)
+    {
+        $cookieStore.put('currentUser', user);
+    };
+
+    $rootScope.getUser=function()
+    {
+      return $cookieStore.get('currentUser');
+    };
+});
 
 app.config(['$routeProvider',
   function($routeProvider) {
@@ -25,9 +42,13 @@ app.config(['$routeProvider',
         controller: 'loginCtrl'
       }).
        when('/signup', {
-        templateUrl: 'signup.html',
-        controller: 'signupCtrl'
-      }).
+            templateUrl: 'signup.html',
+            controller: 'signupCtrl'
+        }).
+        when('/admin', {
+            templateUrl: 'admin.html',
+            controller: 'adminCtrl'
+        }).
        when('/dashboard', {
         templateUrl: 'dashboard.html',
         controller: 'dashboardCtrl'
@@ -40,14 +61,26 @@ app.config(['$routeProvider',
         templateUrl: 'index.html',
         controller: 'logoutCtrl'
       }).
-       when('/newSymptom', {
-        templateUrl: 'new_symptom.html',
-        controller: 'newSymptomCtrl'
+      when('/inbox', {
+          templateUrl: 'inbox.html',
+          controller: 'inboxCtrl'
       }).
-        when('/newDiagnosis', {
-            templateUrl: 'new_diagnosis.html',
-            controller: 'newDiagnosisCtrl'
-        }).
+      when('/inbox/:id', {
+          templateUrl: 'message.html',
+          controller: 'messageCtrl'
+      }).
+      when('/message/new', {
+          templateUrl: 'new_message.html',
+          controller: 'newMessageCtrl'
+      }).
+     when('/newSymptom', {
+      templateUrl: 'new_symptom.html',
+      controller: 'newSymptomCtrl'
+      }).
+      when('/newDiagnosis', {
+          templateUrl: 'new_diagnosis.html',
+          controller: 'newDiagnosisCtrl'
+      }).
       otherwise({
         redirectTo: '/'
       });
