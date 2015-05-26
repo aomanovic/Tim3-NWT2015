@@ -151,20 +151,17 @@ controllers.controller('resetCtrl', ['$scope', '$location','resetFactory',
 }]);
 
 // New symptom controller
-controllers.controller('newSymptomCtrl', ['$scope', '$location','symptomFactory','$translate',
-  function($scope, $location,symptomFactory,$translate) {
+controllers.controller('newSymptomCtrl', ['$scope', '$location','symptomsFactory','$translate', 'alertService',
+  function($scope, $location,symptomsFactory,$translate, alertService) {
      $scope.title = 'NEW_SYMPTOM';
-       $scope.showSymptom = function() {
-          window.alert("This will show data of a symptom");
-      }
 
     $scope.saveSymptom = function() {
-        symptomFactory.create($scope.symptom.name,$scope.symptom.code,$scope.symptom.description)
-          .success(function(resp) {
+        symptomsFactory.create($scope.symptom.name,$scope.symptom.code,$scope.symptom.description)
+            .success(function (data) {
+                $location.path('/symptoms');
+            }).error(function (data) {
                 $location.path('/dashboard');
-          }).error(function(resp) {
-            $location.path('/newSymptom');
-          });
+            });
     }
 }]);
 
@@ -172,16 +169,13 @@ controllers.controller('newSymptomCtrl', ['$scope', '$location','symptomFactory'
 controllers.controller('newDiagnosisCtrl', ['$scope', '$location', 'diagnosesFactory', '$translate',
     function ($scope, $location, diagnosesFactory, $translate) {
         $scope.title = 'NEW_DIAGNOSIS';
-        $scope.showDiagnosis = function () {
-            window.alert("This will show data of the diagnoses");
-        }
 
         $scope.saveDiagnosis = function () {
             diagnosesFactory.create($scope.diagnosis.name, $scope.diagnosis.code, $scope.diagnosis.description)
                 .success(function (resp) {
-                    $location.path('/dashboard');
+                    $location.path('/diagnoses');
                 }).error(function (resp) {
-                    $location.path('/newDiagnosis');
+                    $location.path('/dashboard');
                 });
         }
     }]);
@@ -202,6 +196,44 @@ controllers.controller('inboxCtrl', ['$scope', 'messagesFactory', function ($sco
             $scope.messages = data.document.messages;
             $scope.summary = data.document.message;
 
+        });
+}]);
+
+controllers.controller('symptomsCtrl', ['$scope', 'symptomsFactory', function ($scope, symptomsFactory) {
+    $scope.title = "SYMPTOMS";
+
+    symptomsFactory.all()
+        .success(function (data) {
+            $scope.symptoms = data.document.symptoms;
+            $scope.summary = data.document.symptom;
+        });
+}]);
+
+controllers.controller('symptomCtrl', ['$scope', 'symptomsFactory', '$routeParams', function ($scope, symptomsFactory, $routeParams) {
+    $scope.title = "SYMPTOMS";
+
+    symptomsFactory.get($routeParams.id)
+        .success(function (data) {
+            $scope.symptom = data.document.symptom;
+        });
+}]);
+
+controllers.controller('diagnosesCtrl', ['$scope', 'diagnosesFactory', function ($scope, diagnosesFactory) {
+    $scope.title = "DIAGNOSES";
+
+    diagnosesFactory.all()
+        .success(function (data) {
+            $scope.diagnoses = data.document.diagnoses;
+            $scope.summary = data.document.diagnosis;
+        });
+}]);
+
+controllers.controller('diagnosisCtrl', ['$scope', 'diagnosesFactory', '$routeParams', function ($scope, diagnosesFactory, $routeParams) {
+    $scope.title = "DIAGNOSES";
+
+    diagnosesFactory.get($routeParams.id)
+        .success(function (data) {
+            $scope.diagnosis = data.document.diagnosis;
         });
 }]);
 

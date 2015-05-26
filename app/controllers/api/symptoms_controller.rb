@@ -3,12 +3,8 @@ before_filter :restrict_api_access
 
   #Shows project with specified id
   def show
-    begin
-      foundedSymptom = Symptom.find(params[:id])
-      render response: { foundedSymptom: foundedSymptom.to_json }
-	rescue
-	  render response: { :message => "Symptom with specified id not found!"}
-	end
+    symptom = Symptom.find(params[:id])
+    render response: { symptom: symptom }
   end
 
   #Creates new project with provided parameters, and assigns user that created project as project_manager (role_id = 1)

@@ -82,11 +82,27 @@ app.config(['$routeProvider',
           templateUrl: 'new_message.html',
           controller: 'newMessageCtrl'
       }).
-     when('/newSymptom', {
+        when('/symptoms', {
+            templateUrl: 'symptoms.html',
+            controller: 'symptomsCtrl'
+        }).
+        when('/symptoms/:id', {
+            templateUrl: 'symptom.html',
+            controller: 'symptomCtrl'
+        }).
+        when('/diagnoses', {
+            templateUrl: 'diagnoses.html',
+            controller: 'diagnosesCtrl'
+        }).
+        when('/diagnoses/:id', {
+            templateUrl: 'diagnosis.html',
+            controller: 'diagnosisCtrl'
+        }).
+     when('/symptom/new', {
       templateUrl: 'new_symptom.html',
       controller: 'newSymptomCtrl'
       }).
-      when('/newDiagnosis', {
+      when('/diagnosis/new', {
           templateUrl: 'new_diagnosis.html',
           controller: 'newDiagnosisCtrl'
       }).

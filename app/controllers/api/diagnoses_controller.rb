@@ -3,12 +3,8 @@ class Api::DiagnosesController < ApiController
 
   #Shows project with specified id
   def show
-    begin
-      foundedDiagnosis = Diagnosis.find(params[:id])
-      render response: { foundedDiagnosis: foundedDiagnosis.to_json }
-    rescue
-      render response: { :message => "Diagnosis with specified id not found!"}
-    end
+    diagnosis = Diagnosis.find(params[:id])
+    render response: { diagnosis: diagnosis }
   end
 
   #Creates new project with provided parameters, and assigns user that created project as project_manager (role_id = 1)

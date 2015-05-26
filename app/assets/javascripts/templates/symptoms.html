@@ -1,0 +1,38 @@
+<div class="container">
+    <div class="row">
+        <header title="title" description="description"></header>
+    </div>
+
+
+    <div class="col-md-9">
+        <div class="row">
+            <a ng-href="/#/symptom/new" class="btn btn-primary" translate="NEW_SYMPTOM"></a>
+        </div><br>
+
+        <div class="row">
+            <div class="panel panel-default">
+                <div class="panel-heading" translate="SYMPTOMS"></div>
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th translate="NAME"></th>
+                        <th translate="CODE"></th>
+                        <th translate="DESCRIPTION"></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="symptom in symptoms">
+                        <td><a ng-href="/#/symptoms/{{symptom.id}}">{{symptom.name}}</a></td>
+                        <td>{{symptom.code}}</td>
+                        <td>{{symptom.description}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+
+
+
+    </div>
+</div>

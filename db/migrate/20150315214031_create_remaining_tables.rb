@@ -28,12 +28,6 @@ class CreateRemainingTables < ActiveRecord::Migration
       t.timestamps
     end
 
-    create_table :user_diagnoses do |t|
-      t.references :user
-      t.references :diagnosis
-
-      t.timestamps
-    end
   end
 
   def down
@@ -42,6 +36,5 @@ class CreateRemainingTables < ActiveRecord::Migration
     drop_table :user_types
 
     drop_table :diagnoses
-    drop_table :user_diagnoses
   end
 end

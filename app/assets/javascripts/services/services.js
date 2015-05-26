@@ -64,23 +64,6 @@ services.factory('resetFactory', function($http, $q, $rootScope, $location) {
   };
 });
 
-// Factory for users
-services.factory('symptomFactory', function ($http, $q, $location, $rootScope) {
-  return {
-    create: function(name,code,description) {
-      return $http.post('api/symptoms', {name : name,code:code,description:description});
-    }
-  };
-});
-
-// Factory for users
-services.factory('diagnosesFactory', function ($http, $q, $location, $rootScope) {
-    return {
-      create: function(name,code,description) {
-                return $http.post('api/diagnoses', {name : name,code:code,description:description});
-            }
-        };
-});
 
 // Factory for messages
 services.factory('messagesFactory', function ($http) {
@@ -93,6 +76,35 @@ services.factory('messagesFactory', function ($http) {
         },
         create: function(params) {
             return $http.post('/api/messages', params);
+        }
+    };
+});
+
+// Factory for messages
+services.factory('symptomsFactory', function ($http) {
+    return {
+        all: function() {
+            return $http.get('/api/symptoms')
+        },
+        get: function(id) {
+            return $http.get('/api/symptoms/' + id);
+        },
+        create: function(name,code,description) {
+      return $http.post('api/symptoms', {name : name,code:code,description:description});
+    }
+    };
+});
+
+services.factory('diagnosesFactory', function ($http) {
+    return {
+        all: function() {
+            return $http.get('/api/diagnoses')
+        },
+        get: function(id) {
+            return $http.get('/api/diagnoses/' + id);
+        },
+        create: function(name,code,description) {
+            return $http.post('api/diagnoses', {name : name,code:code,description:description});
         }
     };
 });
