@@ -136,6 +136,16 @@ class Api::UsersController < ApiController
     render response: { :isUnique => User.exists?(:email => params[:field]) }
   end
 
+  def donut_data
+    users = User.group(:user_type_id).count
+    render response: { users: users}
+  end
+
+  def pie_data
+    @users = User.group(:is_activated).count.to_json
+    render response: { :json => {:users => @users} }
+  end
+
   def is_admin
     if @current_user.id == params[:id]
         render response: { :isAdmin => (@current_user.user_type_id == 1) }

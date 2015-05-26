@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
 
   has_many :diagnoses, :through => :user_diagnoses
   has_many :user_diagnoses
+  has_many :uploads
 
   has_secure_password
   #Callbacks because some database adapters use case-sensitive indices

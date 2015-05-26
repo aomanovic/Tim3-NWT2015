@@ -13,6 +13,12 @@ services.factory('usersFactory', function ($http, $q, $location, $rootScope, fla
     },
     is_admin: function(user) {
       return $http.post('api/users/is_admin', { user: user });
+      },
+    donut_data: function() {
+          return $http.get('api/users/donut_data');
+      },
+    pie_data: function(id) {
+          return $http.get('api/users/' + id + 'pie_data');
       }
 
   };
@@ -89,4 +95,15 @@ services.factory('messagesFactory', function ($http) {
             return $http.post('/api/messages', params);
         }
     };
+});
+
+services.factory('uploadsFactory', function ($http) {
+      return {
+            all: function(user_id) {
+              return $http.get('api/users/' + user_id + '/uploads');
+            },
+        create: function(user_id, file) {
+              return $http.post('api/users/' + user_id + '/uploads', { file: file });
+            }
+      }
 });

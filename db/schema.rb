@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150516131129) do
+ActiveRecord::Schema.define(version: 20150519211052) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,10 @@ ActiveRecord::Schema.define(version: 20150516131129) do
     t.string   "Image"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "binaries", force: true do |t|
+    t.binary "data"
   end
 
   create_table "diagnoses", force: true do |t|
@@ -162,6 +166,16 @@ ActiveRecord::Schema.define(version: 20150516131129) do
     t.integer  "MedicamentID"
     t.string   "Quantity"
     t.string   "Description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "uploads", force: true do |t|
+    t.string   "filename"
+    t.string   "content_type"
+    t.integer  "size"
+    t.integer  "binary_id"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -15,7 +15,8 @@ var app = angular.module('app', [
   'oi.multiselect',
   'nvd3',
   'ui.sortable',
-    'ngCookies'
+  'ngCookies',
+  'angularFileUpload'
 ]);
 
 app.run(function ($rootScope, $cookieStore) {
@@ -48,6 +49,14 @@ app.config(['$routeProvider',
         when('/admin', {
             templateUrl: 'admin.html',
             controller: 'adminCtrl'
+        }).
+        when('/admin/resources', {
+            templateUrl: 'resources.html',
+             controller: 'resourcesCtrl'
+        }).
+        when('/admin/new_resource', {
+            templateUrl: 'new_resource.html',
+            controller: 'newResourceCtrl'
         }).
        when('/dashboard', {
         templateUrl: 'dashboard.html',

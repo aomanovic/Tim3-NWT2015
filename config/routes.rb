@@ -6,9 +6,12 @@ HealthMonitor::Application.routes.draw do
   namespace :api do
     resources :sessions, only: :create
 
-    resources :users, only: [:create, :update, :destroy, :show,:index] do
+
+    resources :users, only: [:create, :update, :destroy, :show,:index,:donut_data, :pie_data] do
       collection do
         post :check_email
+        get :donut_data
+        get :pie_data
         post :is_admin
         post :check_username
         get  :change_password_form
@@ -17,9 +20,13 @@ HealthMonitor::Application.routes.draw do
         post :reset_password
       end
 
+      resources :uploads
+
     end
 
     resources :symptoms do
+    end
+    resources :diagnoses do
     end
 
     resources :messages, only: [:index, :show, :create]

@@ -44,7 +44,12 @@ app.config(function($translateProvider) {
     MESSAGES: 'Messages',
     SEND: 'Send',
       INBOX: 'Inbox',
-      ADMIN: 'Admin'
+      ADMIN: 'Admin',
+      RESOURCES: 'Resources',
+      NEW_RESOURCE: 'New resource',
+      UPLOADED_BY: 'Uploaded by',
+      UPLOAD: 'Upload'
+
 
   })
   .translations('bs', {
@@ -92,7 +97,11 @@ app.config(function($translateProvider) {
     MESSAGES: 'Poruke',
     SEND: 'Pošalji',
     INBOX: 'Inbox',
-          ADMIN: 'Admin'
+          ADMIN: 'Admin',
+          RESOURCES: 'Resursi',
+          NEW_RESOURCE: 'Novi resurs',
+          UPLOADED_BY: 'Uploadovao',
+          UPLOAD: 'Upload'
 
   });
    $translateProvider.preferredLanguage('en');

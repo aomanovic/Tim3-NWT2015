@@ -19,10 +19,12 @@
 //= require angular-re-captcha/angular-re-captcha
 //= require angular-translate
 //= require angular-cookies
+//= require Chart
 //= require angular-ui-bootstrap-bower
 //= require angular-ui-bootstrap-bower/ui-bootstrap.js
 //= require angular-ui-bootstrap-bower/ui-bootstrap-tpls.js
 //= require oi.multiselect/dist/multiselect-tpls.min.js
+//= require angularjs-file-upload
 //= require underscore/underscore.js
 //= require d3/d3.js
 //= require nvd3/nv.d3.min.js

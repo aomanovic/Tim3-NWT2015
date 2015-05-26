@@ -64,9 +64,14 @@ gem 'thin'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-gem 'puma', '~> 2.11.1'
+#Pomoc ima na http://stackoverflow.com/questions/24183377/puma-installation-error-on-windows
+#Mora se skinuti openssl i ekstraktovati u folder C:/openssl i onda pokrenuti gem install puma -- --with-opt-dir=C:/openssl
+
+gem 'puma'
 
 gem 'font-awesome-rails', '~> 4.3.0.0'
 gem 'font-awesome-sass', '~> 4.3.0'
 
 gem 'chart-js-rails'
+
+gem 'angularjs-file-upload-rails'

@@ -14,6 +14,8 @@
     "jquery-ui": "latest",
     "angular-ui-sortable": "latest",
     "angular-chartjs-directive": "latest",
-    "angular-cookies": "latest"
+    "angular-cookies": "latest",
+    "Chart.js": "latest",
+    "angular-chart.js": "latest"
   }
 }
