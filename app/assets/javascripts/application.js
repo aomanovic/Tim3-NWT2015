@@ -18,6 +18,7 @@
 //= require angular-rails-templates
 //= require angular-re-captcha/angular-re-captcha
 //= require angular-translate
+//= require Chart
 //= require angular-cookies
 //= require Chart
 //= require angular-ui-bootstrap-bower
