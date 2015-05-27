@@ -110,12 +110,12 @@ services.factory('diagnosesFactory', function ($http) {
 });
 
 services.factory('uploadsFactory', function ($http) {
-      return {
-            all: function(user_id) {
-              return $http.get('api/users/' + user_id + '/uploads');
-            },
-        create: function(user_id, file) {
-              return $http.post('api/users/' + user_id + '/uploads', { file: file });
-            }
-      }
+    return {
+        all: function() {
+            return $http.get('api/uploads');
+        },
+        create: function(file) {
+            return $http.post('api/uploads', { file: file });
+        }
+    }
 });

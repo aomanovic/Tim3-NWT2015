@@ -29,6 +29,8 @@ HealthMonitor::Application.routes.draw do
     resources :diagnoses do
     end
 
+    resources :uploads, only: [:index, :show, :create]
+
     resources :messages, only: [:index, :show, :create]
     resource :dashboard, only: :show
   end

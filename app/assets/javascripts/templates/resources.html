@@ -1,0 +1,34 @@
+<div class="container">
+    <div class="row">
+        <header title="title" description="description"></header>
+    </div>
+
+
+    <div class="col-md-9">
+        <div class="row">
+            <a ng-href="/#/admin/new_resource" class="btn btn-primary" translate="NEW_RESOURCE"></a>
+        </div><br>
+
+        <div class="row">
+            <div class="panel panel-default">
+                <div class="panel-heading" translate="RESOURCES"></div>
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th translate="NAME"></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="resource in resources">
+                        <td>{{resource.fileName}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+
+
+
+    </div>
+</div>

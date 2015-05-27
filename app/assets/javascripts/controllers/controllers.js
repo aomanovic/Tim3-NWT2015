@@ -273,7 +273,7 @@ controllers.controller('resourcesCtrl', ['$scope', 'uploadsFactory', '$cookieSto
     $scope.title = "RESOURCES";
     $scope.user_id = $cookieStore.get('currentUser').id;
 
-    uploadsFactory.all($cookieStore.get('currentUser').id)
+    uploadsFactory.all()
         .success(function (data) {
             console.log(data);
             $scope.resources = data.document.resources;
@@ -284,11 +284,13 @@ controllers.controller('newResourceCtrl', ['$scope', 'uploadsFactory', '$locatio
     function ($scope, uploadsFactory, $location, FileUploader, $cookieStore) {
         $scope.title = "RESOURCES";
         alert($cookieStore.get('currentUser').id);
-        $scope.uploader = new FileUploader({url: '/api/users/' +$cookieStore.get('currentUser').id + '/uploads'});
+        $scope.uploader = new FileUploader({url: '/api/uploads'});
+
 
         $scope.upload = function () {
-            $scope.uploader.uploadItem(0);
-            $location.path('/users/' + $cookieStore.get('currentUser').id);
+            $scope.file = $scope.uploader.uploadItem(0);
+            uploadsFactory.create($scope.file);
+            $location.path('/admin');
         }
     }]);
 
