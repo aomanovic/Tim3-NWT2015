@@ -7,4 +7,4 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 UserType.create([{user_type: 'administrator'},{user_type: 'pacijent'},{user_type: 'osoblje'}])
 
-User.create([{firstname: 'Prvi', lastname: 'Prvi', email: 'omiceozv@sharklasers.com', username: 'prviprvi', password_digest: '$2a$10$O0fZIUcHVc8mZ.A5N1JVWurqjw3T0Vf6oOSveSO.PZDJtM2AqrWam', is_active: 1, user_type_id: 1 }])
+# User.create([{firstname: 'Prvi', lastname: 'Prvi', email: 'omiceozv@sharklasers.com', username: 'prviprvi', password_digest: '$2a$10$O0fZIUcHVc8mZ.A5N1JVWurqjw3T0Vf6oOSveSO.PZDJtM2AqrWam', is_active: 1, user_type_id: 1 }])

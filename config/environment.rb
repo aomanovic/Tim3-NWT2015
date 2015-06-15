@@ -5,11 +5,11 @@ require File.expand_path('../application', __FILE__)
 HealthMonitor::Application.initialize!
 
 ActionMailer::Base.smtp_settings = {
-    :address        => 'smtp.sendgrid.net',
+    :address        => 'smtp.gmail.com',
     :port           => '587',
     :authentication => :plain,
-    :user_name      => ENV['SENDGRID_USERNAME'] || 'app35202232@heroku.com',
-    :password       => ENV['SENDGRID_PASSWORD'] || 'z07smf3d5931',
-    :domain         => 'heroku.com',
+    :user_name      => 'healthmonitoretf@gmail.com',
+    :password       => 'nwt123456',
+    :domain         => 'gmail.com',
     :enable_starttls_auto => true
 }
