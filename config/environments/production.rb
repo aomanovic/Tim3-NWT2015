@@ -89,4 +89,8 @@ HealthMonitor::Application.configure do
       :domain         => 'gmail.com',
       :enable_starttls_auto => true  }
 
+  # reCAPTCHA keys
+  RECAPTCHA_PUBLIC_KEY= '6Lc-ZggTAAAAABT63pzCFfpKP397cQ0J5ecf6lPL'
+  RECAPTCHA_PRIVATE_KEY= '6Lc-ZggTAAAAAI9ERNUdEZUiZ8UVSOEfJvP17VB1'
+
 end
