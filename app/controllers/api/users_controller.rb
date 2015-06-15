@@ -15,7 +15,7 @@ class Api::UsersController < ApiController
     if verify_recaptcha
       user.save!
       begin
-        UserMailer.confirmation_email(user).deliver
+        UserMailer.confirmation_email(user, request.url.split('/api').first).deliver
       rescue
         puts 'Failed to send email'
       end

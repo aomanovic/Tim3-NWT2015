@@ -1,8 +1,9 @@
 class UserMailer < ActionMailer::Base
   default from: "no-reply@health-monitor.herokuapp.com"
 
-  def confirmation_email(user)
+  def confirmation_email(user, host)
     @user = user
+    @host = host
     mail(to: @user.email, subject: 'Confirm account on HealthMonitor')
   end
 
